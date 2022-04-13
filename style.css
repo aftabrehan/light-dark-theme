@@ -1,0 +1,101 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent-color: yellow;
+  --text-color: #333;
+  --background-color: #fff;
+  --btn-text-color: #fff;
+}
+
+body {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  transition: 1s;
+}
+
+.dark {
+  --accent-color: orangered;
+  --text-color: #fff;
+  --background-color: #333;
+  --btn-text-color: #333;
+}
+
+h1 {
+  font-family: ubuntu;
+  font-size: 4rem;
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  transition: color 1s;
+  z-index: 2000;
+}
+
+#theme-toggle-btn {
+  font-family: ubuntu;
+  font-size: 3rem;
+  padding: 0.25rem 0.75rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: var(--btn-text-color);
+  transform: scale(1);
+  transition: 1s;
+  cursor: pointer;
+}
+
+#theme-toggle-btn:hover {
+  transform: scale(1.2);
+}
+
+.sun-moon-container {
+  --rotation: 0;
+
+  position: absolute;
+  top: 0%;
+  height: 200vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  transform: rotate(calc(var(--rotation) * 1deg));
+  pointer-events: none;
+}
+
+.sun,
+.moon {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+}
+
+.sun {
+  top: 5%;
+  opacity: 1;
+  transition: 1s;
+}
+.dark .sun {
+  opacity: 0;
+}
+
+.moon {
+  bottom: 5%;
+  opacity: 0;
+  transform: rotate(180deg);
+  transition: 1s;
+}
+
+.dark .moon {
+  opacity: 1;
+}
